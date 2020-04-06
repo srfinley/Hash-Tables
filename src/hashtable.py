@@ -135,17 +135,19 @@ class HashTable:
         '''
         self.capacity *= 2
         new_storage = [None] * self.capacity
-        for pair in self.storage:
-            if pair is not None:
-                new_index = self._hash_mod(pair.key)
-                if new_storage[new_index] is None:
-                    new_storage[new_index] = pair
-                else:
-                    # print(f"Lost {pair.key}, {pair.value}")
-                    node = new_storage[new_index]
-                    while node.next is not None:
-                        node = node.next
-                    node.next = pair
+        for head in self.storage:
+            if head is not None:
+                node = head
+                while node is not None:
+                    new_index = self._hash_mod(node.key)
+                    new_node = LinkedPair(node.key, node.value)
+                    if new_storage[new_index] is None:
+                        new_storage[new_index] = new_node
+                    else:
+                        old_head = new_storage[new_index]
+                        new_node.next = old_head
+                        new_storage[new_index] = new_node
+                    node = node.next
         self.storage = new_storage
 
 
@@ -178,7 +180,7 @@ if __name__ == "__main__":
 
     # print("")
 
-    table = HashTable(5)
+    table = HashTable(4)
 
     table.insert("key1", "value1")
     print(table.storage)
@@ -188,3 +190,29 @@ if __name__ == "__main__":
 
     table.insert("key2", "value2")
     print(table.storage)
+
+    table.insert("key3", "value3")
+    print(table.storage)
+
+    table.insert("key4", "value4")
+    print(table.storage)
+
+    table.insert("key5", "value5")
+    print(table.storage)
+
+    table.insert("key6", "value6")
+    print(table.storage)
+
+    table.insert("key7", "value7")
+    print(table.storage)
+
+    table.resize()
+    print(table.storage)
+
+    print(table.retrieve("key1"))
+    print(table.retrieve("key2"))
+    print(table.retrieve("key3"))
+    print(table.retrieve("key4"))
+    print(table.retrieve("key5"))
+    print(table.retrieve("key6"))
+    print(table.retrieve("key7"))
