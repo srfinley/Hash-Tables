@@ -153,66 +153,29 @@ class HashTable:
 
 
 if __name__ == "__main__":
-    # ht = HashTable(2)
+    ht = HashTable(2)
 
-    # ht.insert("line_1", "Tiny hash table")
-    # ht.insert("line_2", "Filled beyond capacity")
-    # ht.insert("line_3", "Linked list saves the day!")
+    ht.insert("line_1", "Tiny hash table")
+    ht.insert("line_2", "Filled beyond capacity")
+    ht.insert("line_3", "Linked list saves the day!")
 
-    # print("")
+    print("")
 
-    # # Test storing beyond capacity
-    # print(ht.retrieve("line_1"))
-    # print(ht.retrieve("line_2"))
-    # print(ht.retrieve("line_3"))
+    # Test storing beyond capacity
+    print(ht.retrieve("line_1"))
+    print(ht.retrieve("line_2"))
+    print(ht.retrieve("line_3"))
 
-    # # Test resizing
-    # old_capacity = len(ht.storage)
-    # ht.resize()
-    # new_capacity = len(ht.storage)
+    # Test resizing
+    old_capacity = len(ht.storage)
+    ht.resize()
+    new_capacity = len(ht.storage)
 
-    # print(f"\nResized from {old_capacity} to {new_capacity}.\n")
+    print(f"\nResized from {old_capacity} to {new_capacity}.\n")
 
-    # # Test if data intact after resizing
-    # print(ht.retrieve("line_1"))
-    # print(ht.retrieve("line_2"))
-    # print(ht.retrieve("line_3"))
+    # Test if data intact after resizing
+    print(ht.retrieve("line_1"))
+    print(ht.retrieve("line_2"))
+    print(ht.retrieve("line_3"))
 
-    # print("")
-
-    table = HashTable(4)
-
-    table.insert("key1", "value1")
-    print(table.storage)
-
-    table.insert("key1", "value1-2")
-    print(table.storage)
-
-    table.insert("key2", "value2")
-    print(table.storage)
-
-    table.insert("key3", "value3")
-    print(table.storage)
-
-    table.insert("key4", "value4")
-    print(table.storage)
-
-    table.insert("key5", "value5")
-    print(table.storage)
-
-    table.insert("key6", "value6")
-    print(table.storage)
-
-    table.insert("key7", "value7")
-    print(table.storage)
-
-    table.resize()
-    print(table.storage)
-
-    print(table.retrieve("key1"))
-    print(table.retrieve("key2"))
-    print(table.retrieve("key3"))
-    print(table.retrieve("key4"))
-    print(table.retrieve("key5"))
-    print(table.retrieve("key6"))
-    print(table.retrieve("key7"))
+    print("")
